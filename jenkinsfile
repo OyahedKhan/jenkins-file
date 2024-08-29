@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        
+        stage('Storage') {
+            steps {
+                sh 'lsblk'
+                sh 'pwd'
+                sh 'free -m'
+            }
+        }
+        
+        stage('History') {
+            steps {
+                sh 'history'
+            }
+        }
+        
+        stage('Show sub directory') {
+            steps {
+                sh 'ls -R'
+            }
+        }
+    }
+}
